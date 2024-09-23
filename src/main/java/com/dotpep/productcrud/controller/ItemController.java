@@ -40,18 +40,6 @@ public class ItemController {
         return repo.save(item);
     }
 
-    //@PatchMapping("/item")
-    //public ResponseEntity<Item> partiallyUpdateItem(
-    //    @PathVariable(value = "id") String itemId,
-    //    @Valid @RequestBody Item itemDetails) throws ResourceNotFoundException {
-    //    System.out.println("Saving Item: " + itemId);
-
-    //    Item item = repo.findById(itemId).orElseThrow(() -> new ResourceNotFoundException("Item not found on :: "+ itemId));
-  
-    //    final Item updatedItem = repo.save(item);
-    //    return ResponseEntity.ok(updatedItem);
-    //}
-
     @PatchMapping("/item/{id}")
     public ResponseEntity<Item> partiallyUpdateItem(
         @PathVariable(value = "id") String itemId,
