@@ -13,12 +13,14 @@ public class Item {
 
     private String name;
     private String description;
-
     private BigDecimal price;
+
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     public Item() {
         //this.createdAt = LocalDateTime.now();
+        //this.updatedAt = LocalDateTime.now();
     }
 
 
@@ -59,9 +61,18 @@ public class Item {
         this.createdAt = createdAt;
     }
 
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+
     @Override
     public String toString() {
         return "Item [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
-                + ", createdAt=" + createdAt + "]";
+                + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
     }
 }
