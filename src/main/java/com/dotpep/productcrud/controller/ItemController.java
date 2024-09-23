@@ -88,6 +88,6 @@ public class ItemController {
 
         repo.deleteById(itemId);
 
-        return ResponseEntity.ok("Item was deleted successfully!"); // Return just the message
+        return ResponseEntity.ok("Item was deleted successfully!");
     }
 }
