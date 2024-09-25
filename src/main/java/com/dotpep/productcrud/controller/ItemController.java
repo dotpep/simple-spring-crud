@@ -27,17 +27,30 @@ public class ItemController {
     @Autowired
     ItemRepository repo;
 
-    @GetMapping("/items")
-    public List<Item> getAllItems(){
-        return repo.findAll();
+    @GetMapping("/item/list")
+    public ResponseEntity<List<Item>> getAllItems(){
+        List<Item> items = repo.findAll();
+        return ResponseEntity.ok(items);
+    }
+
+    @GetMapping("/item/{id}")
+    public ResponseEntity<Item> getOneItem(
+        @PathVariable(value = "id") String itemId) throws ResourceNotFoundException {
+        Item item = repo.findById(itemId).orElseThrow(
+            () -> new ResourceNotFoundException("Item not found with id : " + itemId));
+        
+        return ResponseEntity.ok(item);
     }
 
     @PostMapping("/item")
-    public Item createItem(@RequestBody Item item){
+    public ResponseEntity<Item> createItem(@RequestBody Item item){
         System.out.println("Saving Item: " + item);
 
         item.setCreatedAt(LocalDateTime.now());
-        return repo.save(item);
+        item.setUpdatedAt(LocalDateTime.now());
+        Item newItem = repo.save(item);
+
+        return ResponseEntity.ok(newItem);
     }
 
     @PatchMapping("/item/{id}")

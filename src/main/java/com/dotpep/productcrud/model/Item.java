@@ -15,6 +15,8 @@ public class Item {
     private String description;
     private BigDecimal price;
 
+    private String title;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -72,7 +74,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
-                + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+        return "Item [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + ", title="
+                + title + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
     }
 }
